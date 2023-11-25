@@ -7,13 +7,13 @@ const articles = [];
 
 const app = express();
 
-const url = "https://www.onet.pl";
+const url = "https://pewneauto.pl/";
 
 axios(url)
   .then((res) => {
     const html = res.data;
     const $ = cheerio.load(html);
-    $(".TitleWrapper_titleWrapper__1v73l", html).each(function () {
+    $(".main-page-hero__text__counter strong", html).each(function () {
       const title = $(this).text();
       console.log(title);
       articles.push(title);
